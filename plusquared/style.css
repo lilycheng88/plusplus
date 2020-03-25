@@ -1,0 +1,93 @@
+.date {
+	line-height: 0pt;
+  padding: 0;
+}
+.cell 
+{
+	cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAABMElEQVRIS+2VPQ7CMAyFWwkmBnZ2rlAk2LgBO1fgNFyBnRuwgUSvwM7OwAQSyJVe9OrYSUEVE52aH3999kvcsuj5KXvmFb8FPurRS2cwrO5JEeaiBdLg+jwuFptrFN+asEASiKea3cL7YHooTrtVBA1AhglEBwvpeVk2QKwLVOa4DBFQwyAJwRgzlJU2QKjTMK3Eg0K11LQzkFPWKl2g5eR8vQ/TqCHvQxZwvfTSZRWApoCyX8zJAmUjjoiANZTr/hFQwOImHyc+QkEhu2zVUACi0ANyaTq5zKZohZxuMCWlEClZV087LeOgMAdFymyIpU44bnPwrqB1m7jrRO1Hdxyv2/Dt4PTdZpnqifhIth/qY4PxcTsJnduCdFLowXPzv/1J5dRY63+F31StHdN7Dd+SXekfXUIlMgAAAABJRU5ErkJggg==),cell;
+}
+
+.container {
+  width: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+  border: solid black;
+}
+
+#container1 {
+  margin-top: 2%;
+  margin-bottom: 0%;
+}
+
+#container2 {
+  margin-top: 0%; 
+  margin-bottom: 0%;
+}
+
+#container3{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.wrapper {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border: solid green;
+}
+
+#wrapper1 { /* time */
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  font-size: 4vw;
+  text-align: right;
+}
+
+#wrapper2 { /* date */
+  font-family: Nunito;
+  font-size: 2vw;
+  font-weight: 300;
+  text-align: right;
+}
+
+#wrapper3 { /*counter */
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  font-size: 8vw;
+  position: relative;
+  text-align: left;
+}
+
+#wrapper4 { /* topic */
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  font-size: 3vw;
+  position: absolute;
+  right: 2%;
+  text-align: right;
+}
+
+#wrapper5 { /* logo */
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  font-size: 8vw;
+}
+
+#counter{
+	line-height: 10vw;
+}
+/* this allows the counter to be above the circle*/
+
+.box{ 
+  position: relative;
+  display: inline-block; /* Make the width of box same as image */
+}
+.box .text{
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -20%; /* Adjust this value to move the positioned div up and down */
+  text-align: center;
+  width: 60%; /* Set the width of the positioned div */
+}

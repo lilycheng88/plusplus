@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="cell">
+  <head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>++</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="script.js">	</script>
+  </head>
+	
+	<body onload="">
+			<div class="container" id = "container1">
+				<div class= "wrapper" id = "wrapper1">
+				<td><p class="date" id="time"> 5:38 PM</p></td>
+				</div>
+			</div>
+
+			<div class= "container" id = "container2">
+				<div class= "wrapper" id = "wrapper2">
+					<td><p class="date" id="date">  Thursday, March 4, 2020 </p> </td>
+				</div>
+			</div>
+
+			<div class="box">
+					<img src="circle.png" alt="orange circle">
+					<div class="text">
+							<div class = "container" id = "container3">
+								<div class = "wrapper" id = "wrapper3">
+									<p class="counter" id="counter"> </p>
+								</div>
+							</div>
+					</div>
+			</div>
+
+			<div class = "container" id = "container3">
+					<div class = "wrapper" id = "wrapper5">
+						<td> ++ </td>
+					</div>
+					<div class = "wrapper" id = "wrapper4">
+						<td> <p id="category"> Press the space bar to generate  
+							<br>	
+							a random wacky counter</p> </td>
+					</div>
+				</div>
+	
+	</body>
+</html>
+
+
+
+
+
+<script>
+//initialize variables
+const counter_database=[ //list of wacky counter data
+	
+	/* format=[
+		initial_num,increment_by,reference_date_as_object,'type of growth', caption ]
+	]*/
+
+	initial=[
+		initial_num_egg=1590129316000,
+		increment_by_egg=0,
+		reference_date_egg={year:2000, month:6, day:1, hour:12, minute:0, second:0},'l', 'Press the space bar'
+	],
+
+	egg=[
+		initial_num_egg=1590129316000*0.13,
+		increment_by_egg=37.77649177*0.13,
+		reference_date_egg={year:2000, month:6, day:1, hour:12, minute:0, second:0},'l', 'Number of sunny side up eggs that <br>	have been consumed in the US since 2000'
+	],
+
+	gamer=[
+		initial_num_gamer=2471000000,
+		increment_by_gamer=1.000000001870877727,
+		reference_date_gamer={year:2019, month:11, day:31, hour:12, minute:0, second:0},'e', 'Number of gamers worldwide in 2020'
+	],
+
+  initialCrest = [
+    initial_num_initialCrest = 163341,
+    increment_by_initialCrest = .000069634703196,
+    reference_date_initialCrest={year:2001, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of dentists in the US'
+  ],
+
+  crest = [
+    initial_num_Crest = 163341*.9,
+    increment_by_Crest = .000069634703196*.9,
+    reference_date_Crest={year:2001, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of dentists that recommend Crest toothpaste'
+  ],
+
+  redLight = [
+    initial_num_redLight = 15234020, 
+    increment_by_redLight = .03,
+    reference_date_redLight={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of people sitting at a red light'
+  ],
+
+  yawning = [
+    initial_num_yawning = 7554130,
+    increment_by_yawning = .44,
+    reference_date_yawning={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of people yawning right now'
+
+  ],
+  
+  rain = [
+    initial_num_rain = 7581,
+    increment_by_rain = .003,
+    reference_date_rain={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of cities it is raining in now'
+
+  ],
+
+  packages = [
+    initial_num_packages = 22394,
+    increment_by_packages = .0004,
+    reference_date_packages={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of Amazon packages that have been shipped to Greenland since 2000'
+  ],
+
+  goldfish = [
+    initial_num_goldfish = 53022706,
+    increment_by_goldfish = .003,
+    reference_date_goldfish={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'How many goldfish are named "bubbles"'
+  ],
+  
+  battery = [
+    initial_num_battery = 790223540,
+    increment_by_battery = 39,
+    reference_date_battery ={year:2020, month: 0, day: 0, hour: 0, minute: 0, second: 0}, 'l', 'Number of phones on 1% battery'
+  ]
+]
+var num=0;
+var list=counter_database;
+
+//run functions
+setTime();
+setInterval(setTime, 1000);
+counter=setInitialCount(list[num][0],list[num][1], timeSince(list[num][2], getTime()));
+setInterval(function(){
+		increment(list[num][0],list[num][1], list[num][3]);
+},1000);
+
+/////////////*FUNCTIONS*////////////
+
+// string representation of the date and time
+	function setTime() {
+		var today = new Date();
+		var date = (today.toLocaleString('default', { month: 'long' }))+' '+today.getDate()+', '+today.getFullYear();
+		var time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+		document.getElementById("date").innerHTML=date;
+		document.getElementById("time").innerHTML=time;
+	}
+
+//spacebar generators random counter
+document.addEventListener('keyup', event => 
+	{
+		if (event.code === 'Space') 
+		{
+			num=getRandomInt(list.length);
+			document.getElementById("category").innerHTML = list[num][4];
+			counter=setInitialCount(list[num][0],list[num][1], timeSince(list[num][2], getTime()));
+			document.getElementById('counter').innerHTML = numToString(Math.floor(counter));
+			/*list.splice(num,1);
+			console.log(list.length);
+			if (list.length==0){
+				console.log(list.length);
+			}*/
+  	}
+	}
+)
+
+//increments counter 
+function increment(intitial,increment,type) {
+	if (type=='l'){
+		counter+=increment;
+	}
+	else if (type=='e'){
+		counter*=increment;
+	}
+	document.getElementById('counter').innerHTML = numToString(Math.floor(counter));
+	return counter;
+}
+
+</script>
